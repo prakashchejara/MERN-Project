@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Alert</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        #food-type,#food-storage,#crdate {
+            width: 200px;
+        }
+        #food-item{width: 192px;}
+        #pdate,#rodate{width: 195px;}
+        #ahours{width: 142px;}
+    </style>
+    <script>
+        function cSelect(){
+            var cc = document.querySelector('#crdate').value;
+        if( cc=="sowdate")
+        {
+            document.getElementById("sodate").style.display = "";
+        }
+        else{
+            document.getElementById("sodate").style.display = "none";
+        }    
+        }
+    </script>
+</head>
+<body>
+<form action="/demo">
+    <h2>Set Alert for Food:</h2>
+    Select Food Type:<br>
+    <select name="ftype" id="food-type">
+        <option value="Cookable">Cookable</option>
+        <option value="Non-cookable">Non-cookable</option>
+        <option value="Cooked">Cooked</option>
+        <option value="Fat">Fat</option>
+        <option value="Dairy">Dairy</option>
+        <option value="Protein">Lentils/Beans/Peas</option>
+    </select>
+<br><br>
+    Select Food Storage Condition:<br>
+    <select name="fstorage" id="food-storage">
+        <option value="at-room-temp">At Room Temprature</option>
+        <option value="in-ref">In Refrigerator</option>
+    </select>
+    <br><br>
+
+    Select Your Food Item:<br>
+    <label for="food-item"></label>
+    <input list="food-items" name="food-item" id="food-item">
+    <datalist id="food-items">
+        <option value="Potato">
+        <option value="Chilli">
+        <option value="Tomato">
+        <option value="Banana">
+        <option value="Apple">
+        <option value="Milk">
+        <option value="Curd">
+        <option value="Cheese">
+        <option value="Green-gram">
+        <option value="Kidney-beans">
+    </datalist>
+    <p id="troom"></p>
+    <p id="tref"></p>
+    Food Purchased/Prepared Date:<br>
+    <label for="pdate"></label>
+    <input type="date" id="pdate" name="pdate">
+    <br><br>
+    Reminder Date:<br>
+    <select id="crdate" onchange="cSelect();">
+        <option value="set-bdate">Set Best Default Date</option>
+        <option value="sowdate">Select Own Date</option>
+    </select><br><br>
+    <div id="sodate" style="display:none;">
+    Select Own Reminder Date:<br>
+    <label for="rodate"></label>
+    <input type="date" id="rodate" name="rodate">
+    </div>
+   <br>
+    Get Alert On:<br>
+    <input type="number" id="ahours" name="ahours" min="0" max="12">
+    <select id="ampm" style="width: auto;">
+        <option value="AM">AM</option>
+        <option value="PM">PM</option>
+    </select><br><br>
+    <input type="submit" value="Submit";>
+</form>
+</body>
+</html>
